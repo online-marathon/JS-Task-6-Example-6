@@ -13,3 +13,27 @@ colorElements.forEach((colorElement) => {
         priceElement.textContent = price;
     });
 });
+
+const sizeElements = document.querySelectorAll('.size');
+
+sizeElements.forEach((sizeElement) => {
+    sizeElement.addEventListener('click', () => {
+        const sizeActive = document.querySelector('.size.active');
+        if (sizeActive) {
+            sizeActive.classList.remove('active');
+        }
+        sizeElement.classList.add('active');
+
+        const price = sizeElement.getAttribute('data-price');
+        priceElement.textContent = price;
+    });
+});
+
+const typeElements = document.querySelectorAll('input[name="type"]');
+
+typeElements.forEach((typeElement) => {
+    typeElement.addEventListener('change', () => {
+        const price = document.querySelector(`input[name="type"]:checked`).getAttribute('data-price');
+        priceElement.textContent = price;
+    });
+});
